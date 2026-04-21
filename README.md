@@ -351,7 +351,7 @@ Click the **⛶ Fullscreen** button on the video panel to enter immersive mode:
 
 ---
 
-## Upgrade Notes & Future Ideas
+## Notes for Future Ideas
 
 ### 🔋 Planned / Suggested Upgrades
 
