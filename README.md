@@ -1,20 +1,20 @@
-# 🤖 RoverMania — AI-Powered Remote Rover Dashboard
+# 🤖 RoverMania — An AI-Powered Remote Rover
 
-A real-time Neubrutalist-styled rover command center built with **Next.js 16**, featuring live WebRTC video streaming, keyboard/touch D-pad controls, and a **Gemini 2.5 Flash** AI vision assistant that can analyze what the rover sees.
+A real-time Neubrutalist-styled rover command centre built with **Next.js 16**, featuring live WebRTC video streaming, keyboard/touch D-pad controls, and a **Gemini 2.5 Flash**(Use any model of choice) for an AI vision assistant that can analyse what the rover sees.
 
 > **Made by Prerith.M**
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [System Architecture](#system-architecture)
 2. [Prerequisites](#prerequisites)
-3. [Part 1 — Raspberry Pi Setup](#part-1--raspberry-pi-setup)
+3. [Part 1 — The Raspberry Pi Setup](#part-1--raspberry-pi-setup)
 4. [Part 2 — Web App Setup](#part-2--web-app-setup)
 5. [Using the Dashboard](#using-the-dashboard)
-6. [Environment Variables Reference](#environment-variables-reference)
-7. [Upgrade Notes & Future Ideas](#upgrade-notes--future-ideas)
+6. [Environment Variables Reference (For Security)](#environment-variables-reference)
+7. [Notes for Future Ideas](#notes-for-future-ideas)
 
 ---
 
@@ -50,7 +50,7 @@ A real-time Neubrutalist-styled rover command center built with **Next.js 16**, 
 |---|---|
 | Node.js | ≥ 18.x |
 | npm | ≥ 9.x |
-| Raspberry Pi OS | Bullseye or Bookworm (64-bit recommended) |
+| Raspberry Pi OS | 64-bit recommended |
 | Raspberry Pi Camera | v2 or HQ Camera Module |
 | Google Gemini API Key | [Get one free here](https://aistudio.google.com/app/apikey) |
 
@@ -58,7 +58,7 @@ A real-time Neubrutalist-styled rover command center built with **Next.js 16**, 
 
 ## Part 1 — Raspberry Pi Setup
 
-### Step 1: Connect the rover to Wi-Fi
+### Step 1: Connect the rover to your local Wi-Fi Network
 
 Boot your Pi and connect it to the **same Wi-Fi network** as your computer. Find its local IP address:
 
@@ -86,7 +86,7 @@ libcamera-hello --list-cameras
 
 ---
 
-### Step 3: Install MediaMTX (WebRTC Video Streamer)
+### Step 3: Install MediaMTX (WebRTC Video Streamer used for video Streaming)
 
 MediaMTX handles streaming your camera feed over WebRTC using the WHEP protocol.
 
@@ -243,12 +243,12 @@ Open `rovermania/src/app/page.tsx` and update line 21 with your Pi's actual IP:
 ```ts
 const PI_IP = "10.248.130.62"; // ← Change this to your Pi's IP
 ```
-
+Note: You can also use VS Code Remote-SSH, too. 
 ---
 
 ## Part 2 — Web App Setup
 
-### Step 1: Clone the Repository
+### Step 1: Clone the Repo
 
 ```bash
 git clone https://github.com/PrerithM/AdvancedRover.git
@@ -269,7 +269,7 @@ Create `.env.local` in the `rovermania/` directory:
 GEMINI_API_KEY=your_actual_gemini_api_key_here
 ```
 
-> Get a free API key at [Google AI Studio](https://aistudio.google.com/app/apikey)
+> Get a free API key at [Google AI Studio](https://aistudio.google.com/app/apikey) It is as far for 21/04/2026. I am using 2.5 flash here.
 
 ### Step 4: Run the Development Server
 
@@ -294,13 +294,13 @@ npm run start
 
 The dashboard is password-protected. When you first open the app you'll be redirected to the login page.
 
-**Default password:** `PrerithRover`
+**Default password:** `PrerithRover` 
 
 > To change the password, edit `src/app/api/auth/route.ts` line 9.
 
 ---
 
-### 🎮 Driving the Rover
+### 🎮 Driving the Rover - Simple COntrols
 
 | Control | Action |
 |---|---|
